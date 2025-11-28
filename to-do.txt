@@ -1,1 +1,4 @@
-
+1. Code the main loop where every frame of the game happens, including rendering
+ a. Look into OpenGL and Vulkan API
+ b. Get things on the thing, draw things on the screen.
+2. Code level loading/sound/camera/etc
