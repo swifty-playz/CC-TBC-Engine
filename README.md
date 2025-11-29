@@ -35,5 +35,5 @@ This engine is designed as a portfolio project to demonstrate skills in **C prog
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Setup
 
