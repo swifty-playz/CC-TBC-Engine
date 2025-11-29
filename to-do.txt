@@ -1,4 +1,247 @@
-1. Code the main loop where every frame of the game happens, including rendering
- a. Look into OpenGL and Vulkan API
- b. Get things on the thing, draw things on the screen.
-2. Code level loading/sound/camera/etc
+⸻
+
+🟩 ENGINE TO–DO LIST
+
+⸻
+
+1. Core Engine Setup
+
+main.c
+	•	Initialize Raylib window
+	•	Initialize engine systems
+	•	Load editor assets (icons, fonts)
+	•	Main loop (update + render)
+	•	Shutdown and free memory
+
+⸻
+
+2. Window & Rendering System
+
+window.c / window.h
+	•	Handle window initialization
+	•	Manage resize events
+	•	Store screen width/height
+	•	Render UI panels/background
+	•	Provide camera control functions
+
+⸻
+
+3. Input System
+
+input.c / input.h
+	•	Process mouse clicks
+	•	Process key input
+	•	Handle drag operations
+	•	Handle UI interactions
+	•	Detect clicks inside panels
+
+⸻
+
+4. UI System
+
+ui.c / ui.h
+	•	Draw top menu bar
+	•	Draw left scene selection panel
+	•	Draw right inspector panel
+	•	Button creation + detection
+	•	Dropdowns, toggles, and text fields
+	•	Scene switching logic
+
+⸻
+
+5. Editor Scenes
+
+Each scene gets its own file so it stays clean.
+
+⸻
+
+5.1 Map Scene
+
+scene_map.c / scene_map.h
+	•	Display the current map image
+	•	Handle map upload button
+	•	Draw collision rectangles
+	•	Select, move, delete rectangles
+	•	Draw nodes on map
+	•	Handle map switching
+	•	Save map layout to JSON
+	•	Load map layout from JSON
+
+⸻
+
+5.2 Monsters Scene
+
+scene_monsters.c / scene_monsters.h
+	•	Upload monster sprite
+	•	Create/edit monster entries
+	•	Monster stats editor fields
+	•	Monster list panel
+	•	Save/load monster database
+
+⸻
+
+5.3 Player Scene
+
+scene_player.c / scene_player.h
+	•	Player sprite upload
+	•	Movement speed settings
+	•	Starter creature selection
+	•	Set starting map & position
+	•	Save/load player data
+
+⸻
+
+5.4 Nodes Scene
+
+scene_nodes.c / scene_nodes.h
+	•	Node type list (encounter, warp, dialogue, etc.)
+	•	Add new node type
+	•	Configure node behavior fields
+	•	Save/load node definitions
+
+⸻
+
+6. Map Data System
+
+map.c / map.h
+	•	Store map properties (name, size, image)
+	•	Store collision rectangles
+	•	Store node positions
+	•	Handle tile-based data later (future)
+	•	JSON import/export helpers
+
+⸻
+
+7. Collision System
+
+collision.c / collision.h
+	•	Define collision rectangle structs
+	•	Add/remove collision regions
+	•	Detect mouse clicks inside rectangles
+	•	Drag/resize collision rectangles
+	•	Provide collision data to runtime engine
+
+⸻
+
+8. Node System
+
+nodes.c / nodes.h
+	•	Define node struct (type, rect, parameters)
+	•	Add/remove nodes
+	•	Detect node interaction in runtime
+	•	Save/load node list per map
+	•	Provide editor rendering (color-coded boxes)
+
+⸻
+
+9. Creature/Monster System
+
+creature.c / creature.h
+	•	Define creature struct (stats, name, sprite)
+	•	Handle stat validation & defaults
+	•	Manage creature database array
+	•	Save/load monster data to JSON
+	•	Provide creature data to runtime engine
+
+⸻
+
+10. Party System
+
+party.c / party.h
+	•	Add/remove monsters to party
+	•	Save/load player party
+	•	Manage party limit rules
+	•	Leveling and XP functions (if included)
+
+⸻
+
+11. Runtime Engine
+
+This is the actual game that the editor builds.
+
+11.1 Gameplay Boot
+
+runtime.c / runtime.h
+	•	Engine boot from saved project
+	•	Load maps, collisions, monsters, nodes
+	•	Create player entity
+	•	Switch to gameplay mode
+
+⸻
+
+11.2 Player Controller
+
+player.c / player.h
+	•	Handle movement
+	•	Handle collisions
+	•	Handle node interactions
+	•	Handle map switching triggers
+	•	Draw the player sprite
+
+⸻
+
+11.3 Battle System (Later Phase)
+
+battle.c / battle.h
+	•	Basic turn loop
+	•	Damage calculations
+	•	XP awarding
+	•	Monster selection
+	•	Battle UI (very simple first)
+
+⸻
+
+12. Serialization System
+
+json.c / json.h
+	•	Save maps to JSON
+	•	Save nodes to JSON
+	•	Save monsters to JSON
+	•	Save player to JSON
+	•	Load all data back into structs
+	•	Centralized JSON helper functions
+
+⸻
+
+13. Utility & Shared Logic
+
+util.c / util.h
+	•	File path helpers
+	•	Clamp, min/max helpers
+	•	Rectangle overlap check
+	•	String utilities
+	•	Logging/debug functions
+
+⸻
+
+14. Asset Management
+
+assets.c / assets.h
+	•	Load textures
+	•	Free textures
+	•	Cache sprites
+	•	Handle missing assets gracefully
+
+⸻
+
+15. Future Additions (List but don’t code yet)
+
+✔ Tilemap editor UI
+
+✔ Tile palette & brush tool
+
+✔ Multi-layer support
+
+✔ Creature abilities system
+
+✔ Dialogue editor
+
+✔ Cutscene editor
+
+✔ Pathfinding (A* or grid-based)
+
+✔ Plugin system
+
+(Not needed for MVP)
+
+⸻
